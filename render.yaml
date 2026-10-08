@@ -1,0 +1,6 @@
+services:
+  - type: web
+    name: golfcom-main
+    runtime: static
+    staticPublishPath: ./
+    autoDeploy: true
