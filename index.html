@@ -1805,7 +1805,7 @@
   /* ── SECTION TEXT CONTRAST OVERLAY ──
      A semi-transparent dark tint sits behind every section's content
      so text stays readable regardless of what the background image shows */
-  section::before {
+  section:not(.hero)::before {
     content: "";
     position: absolute;
     inset: 0;
@@ -1814,14 +1814,9 @@
     z-index: 0;
   }
 
-  section > * {
+  section:not(.hero) > * {
     position: relative;
     z-index: 1;
-  }
-
-  /* Hero already manages its own overlay — lighten it, don't add a second one */
-  .hero::before {
-    background: linear-gradient(180deg, rgba(4, 12, 8, 0.28) 0%, rgba(4, 12, 8, 0.50) 100%) !important;
   }
 
   /* ── PRICE CARD ── */
