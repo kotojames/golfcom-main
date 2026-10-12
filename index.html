@@ -1802,9 +1802,29 @@
   .hero .hero-cta a   { font-size: 13px !important; }
   .hero .scroll-hint  { font-size: 13px !important; }
   .hero .pc-label     { font-size: 13px !important; letter-spacing: 1px !important; }
-  .hero .pc-price     { font-size: 1.9rem !important; }
-  .hero .pc-sub       { font-size: 13px !important; }
-  .price-card {
+  /* ── SECTION TEXT CONTRAST OVERLAY ──
+     A semi-transparent dark tint sits behind every section's content
+     so text stays readable regardless of what the background image shows */
+  section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(4, 12, 8, 0.52);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  section > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Hero already manages its own overlay — lighten it, don't add a second one */
+  .hero::before {
+    background: linear-gradient(180deg, rgba(4, 12, 8, 0.28) 0%, rgba(4, 12, 8, 0.50) 100%) !important;
+  }
+
+  /* ── PRICE CARD ── */
     background: rgba(255,255,255,0.12);
     border: 1px solid rgba(255,255,255,0.7);
     border-radius: 16px;
